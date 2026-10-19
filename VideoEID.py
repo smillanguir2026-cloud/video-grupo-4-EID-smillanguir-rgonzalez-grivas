@@ -2,9 +2,9 @@ from manim import *
 
 class PresentacionEje4Larga(Scene):
     def construct(self):
-        # ==========================================
-        # ESCENA 1: Introducción y Pregunta Central (~45s)
-        # ==========================================
+      
+        # ESCENA 1: Introducción y Pregunta Central
+      
         logo_uct = Text("UCT - Universidad Católica de Temuco", font_size=22, color=BLUE_B).to_edge(UP)
         titulo = Text("Eje 4: Del símbolo de sumatoria\nal símbolo de integral definida", font_size=32, weight=BOLD).next_to(logo_uct, DOWN, buff=0.3)
         integrantes = Text("Integrantes: Simón Millanguir | Roberto Gonzales | Gabriel Rivas", font_size=18, color=GRAY_A).next_to(titulo, DOWN, buff=0.3)
@@ -24,12 +24,12 @@ class PresentacionEje4Larga(Scene):
         ).move_to(pregunta_caja)
 
         self.play(Create(pregunta_caja), Write(pregunta_txt), run_time=2)
-        self.wait(8) # Pausa para plantear la pregunta central
+        self.wait(8) 
         self.play(FadeOut(pregunta_caja), FadeOut(pregunta_txt), FadeOut(titulo), run_time=1)
 
-        # ==========================================
-        # ESCENA 2: Suma Finita de Riemann (~1m 15s)
-        # ==========================================
+      
+        # ESCENA 2: Suma Finita de Riemann 
+      
         titulo_e2 = Text("Suma Finita de Riemann (Discreta)", font_size=28, color=BLUE).to_corner(UL)
         self.play(Write(titulo_e2), run_time=1)
 
@@ -48,13 +48,13 @@ class PresentacionEje4Larga(Scene):
 
         self.play(Create(axes), Create(curva), run_time=2)
         self.play(Create(rects_4), Write(lbl_dx), run_time=2)
-        self.wait(10) # Tiempo para explicar los n=4 rectángulos y el error
+        self.wait(10) 
 
         self.play(FadeOut(titulo_e2), FadeOut(expr_riemann), FadeOut(rects_4), FadeOut(lbl_dx), run_time=1)
 
-        # ==========================================
-        # ESCENA 3: El Paso al Límite n -> inf (~1m 30s)
-        # ==========================================
+    
+        # ESCENA 3: El Paso al Límite n -> inf 
+       
         titulo_e3 = Text("Paso al Límite: Refinamiento de la Partición", font_size=28, color=GREEN).to_corner(UL)
         self.play(Write(titulo_e3), run_time=1)
 
@@ -71,7 +71,7 @@ class PresentacionEje4Larga(Scene):
             lbl_n = Text(f"n = {n_val} rectángulos", font_size=20, color=YELLOW).next_to(axes, UP)
             rects_next = axes.get_riemann_rectangles(curva, x_range=[0, 2], dx=2/n_val, color=GREEN_B, fill_opacity=0.6)
             self.play(Transform(rects_curr, rects_next), FadeIn(lbl_n), run_time=2)
-            self.wait(3) # Pausa larga para mostrar cómo se ajusta a la curva
+            self.wait(3)
             self.play(FadeOut(lbl_n), run_time=0.5)
 
         self.play(TransformFromCopy(f_sumatoria, f_integral), run_time=2)
@@ -79,9 +79,9 @@ class PresentacionEje4Larga(Scene):
 
         self.play(FadeOut(axes), FadeOut(curva), FadeOut(rects_curr), FadeOut(f_sumatoria), FadeOut(f_integral), FadeOut(titulo_e3), run_time=1)
 
-        # ==========================================
-        # ESCENA 4: Ejemplo Numérico Resuelto (~1m)
-        # ==========================================
+      
+        # ESCENA 4: Ejemplo Numérico Resuelto 
+     
         titulo_e4 = Text("Ejemplo Resuelto: f(x) = x² + 1 en [0, 2]", font_size=28, color=YELLOW).to_corner(UL)
         self.play(Write(titulo_e4), run_time=1)
 
@@ -105,15 +105,15 @@ class PresentacionEje4Larga(Scene):
         self.play(Write(paso1), run_time=2)
         self.wait(4)
         self.play(Write(paso2), FadeIn(nota_regla), run_time=2)
-        self.wait(6) # Pausa clave para explicar la regla de la potencia
+        self.wait(6) 
         self.play(Write(res_exacto), run_time=2)
         self.wait(6)
 
         self.play(FadeOut(axes_e4), FadeOut(curva_e4), FadeOut(area_e4), FadeOut(paso1), FadeOut(paso2), FadeOut(nota_regla), FadeOut(res_exacto), FadeOut(titulo_e4), run_time=1)
 
-        # ==========================================
-        # ESCENA 5: Conclusión y Referencias (30s)
-        # ==========================================
+        
+        # ESCENA 5: Conclusión y Referencias
+        
         conclusion_titulo = Text("Conclusión y Referencias", font_size=28, color=GOLD).to_corner(UL)
 
         res_final = Paragraph(
@@ -134,4 +134,4 @@ class PresentacionEje4Larga(Scene):
 
         self.play(Write(conclusion_titulo), Write(res_final), run_time=2)
         self.play(FadeIn(refs), run_time=2)
-        self.wait(10) # Pausa final para la placa de cierre
+        self.wait(10) 
